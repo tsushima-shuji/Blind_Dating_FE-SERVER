@@ -7,7 +7,7 @@ const paginationDataFetcher = async (page: number) => {
 };
 
 export const useGetRecommendedUserList = () => {
-  const { data, hasNextPage, isLoading, isSuccess, refetch } = useInfiniteQuery(
+  const { data, isLoading, isSuccess, refetch } = useInfiniteQuery(
     ['recommendedUserList'],
     ({ pageParam = 0 }) => paginationDataFetcher(pageParam),
     {
@@ -19,5 +19,5 @@ export const useGetRecommendedUserList = () => {
     }
   );
 
-  return { data, refetch, hasNextPage, isLoading, isSuccess };
+  return { data, refetch, isLoading, isSuccess };
 };
