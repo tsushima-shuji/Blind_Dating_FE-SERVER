@@ -12,7 +12,7 @@ type MessageContent = {
 };
 
 const useHandleChat = () => {
-  const client = Stomp.over(() => new SockJS(`${import.meta.env.VITE_API_ADDRESS}/stomp/chat`));
+  const client = Stomp.over(() => new SockJS(`${import.meta.env.VITE_API_ADDRESS}stomp/chat`));
   const { userId, userName: username } = useRecoilValue(userState);
   const navigate = useNavigate();
   const setChatData = useSetRecoilState(chatDataState);
