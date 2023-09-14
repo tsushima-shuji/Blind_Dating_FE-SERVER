@@ -15,13 +15,13 @@ export type UserInfo = {
 };
 
 const ProfilePage = () => {
-  const userInfo = useRecoilValue(userState);
+  const { region, mbti, selfIntroduction, interests, userName, userId } = useRecoilValue(userState);
   const { mutate } = usePostEditProfile();
   const [values, setValues] = useState<UserInfo>({
-    region: userInfo.region,
-    mbti: userInfo.mbti,
-    selfIntroduction: userInfo.selfIntroduction,
-    interests: userInfo.interests?.map((interest) => interest.interestName),
+    region,
+    mbti,
+    selfIntroduction,
+    interests: interests.map((interest) => interest.interestName),
   });
   const setUserState = useSetRecoilState(userState);
 
@@ -39,15 +39,8 @@ const ProfilePage = () => {
   return (
     <Layout title="My Page">
       <main className="flex-auto">
-        <UserInfo nickname={userInfo.userName} id={userInfo.userId} />
-        <UserDetailFields
-          onChange={handleValueChange}
-          selfIntroduction={userInfo.selfIntroduction}
-          interests={userInfo.interests?.map((interest) => interest.interestName)}
-          region={userInfo.region}
-          mbti={userInfo.mbti}
-          values={values}
-        />
+        <UserInfo nickname={userName} id={userId} />
+        <UserDetailFields onChange={handleValueChange} {...values} />
         <UserInfoEditBtn onSubmit={handleSubmit} />
       </main>
     </Layout>
