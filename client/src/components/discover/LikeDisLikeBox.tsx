@@ -8,31 +8,22 @@ type Props = {
   userId: number;
   currentUserIndex: number;
   setCurrentUserIndex: React.Dispatch<React.SetStateAction<number>>;
-  hasNextPage: boolean | undefined;
   refetch: () => void;
+  dataLength: number;
 };
 
-export const LikeDisLikeBox = ({
-  userId,
-  setCurrentUserIndex,
-  currentUserIndex,
-  hasNextPage,
-  refetch,
-}: Props) => {
+export const LikeDisLikeBox = (props: Props) => {
+  const { userId, setCurrentUserIndex, currentUserIndex, refetch, dataLength } = props;
   const { postLikeFn } = usePostLike();
   const { postDisLikeFn } = usePostDisLike();
 
   const handleLike = () => {
-    if (currentUserIndex === 9) {
-      if (hasNextPage) {
-        postLikeFn(userId, {
-          onSuccess: () => {
-            refetch();
-          },
-        });
-      } else {
-        postLikeFn(userId);
-      }
+    if (currentUserIndex === dataLength - 1) {
+      postLikeFn(userId, {
+        onSuccess: () => {
+          refetch();
+        },
+      });
     } else {
       postLikeFn(userId);
       setCurrentUserIndex(currentUserIndex + 1);
@@ -40,29 +31,25 @@ export const LikeDisLikeBox = ({
   };
 
   const handleDisLike = () => {
-    if (currentUserIndex === 9) {
-      if (hasNextPage) {
-        postDisLikeFn(userId, {
-          onSuccess: () => {
-            refetch();
-          },
-        });
-      } else {
-        postDisLikeFn(userId);
-      }
+    if (currentUserIndex === dataLength - 1) {
+      postDisLikeFn(userId, {
+        onSuccess: () => {
+          refetch();
+        },
+      });
     } else {
       postDisLikeFn(userId);
       setCurrentUserIndex(currentUserIndex + 1);
     }
   };
   return (
-    <div className="flex justify-center gap-8 mt-8">
+    <section className="flex justify-center gap-8 mt-8">
       <button className="flex items-center justify-center bg-white rounded-full shadow-3xl w-14 h-14">
         <ThumbDown onClick={handleDisLike} />
       </button>
       <button className="flex items-center justify-center bg-white rounded-full shadow-3xl w-14 h-14 ">
         <ThumbUp onClick={handleLike} />
       </button>
-    </div>
+    </section>
   );
 };

@@ -25,7 +25,7 @@ export type UserList = {
 
 function DiscoverPage() {
   const [currentUserIndex, setCurrentUserIndex] = useState<number>(0);
-  const { data, isLoading, isSuccess, hasNextPage, refetch } = useGetRecommendedUserList();
+  const { data, isLoading, isSuccess, refetch } = useGetRecommendedUserList();
 
   useEffect(() => {
     if (data) {
@@ -59,8 +59,8 @@ function DiscoverPage() {
               userId={dataPath.content[currentUserIndex].id}
               currentUserIndex={currentUserIndex}
               setCurrentUserIndex={setCurrentUserIndex}
-              hasNextPage={hasNextPage}
               refetch={refetch}
+              dataLength={dataPath.content.length}
             />
           </>
         )}
