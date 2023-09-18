@@ -1,4 +1,4 @@
-import Layout from 'components/layout/Layout';
+import Navbar from 'components/layout/Navbar';
 import UserDetailFields from 'components/profile/detail/DetailFields';
 import UserInfo from 'components/profile/UserInfo';
 import UserInfoEditBtn from 'components/profile/UserInfoEditBtn';
@@ -37,13 +37,14 @@ const ProfilePage = () => {
   };
 
   return (
-    <Layout title="My Page">
+    <>
+      <Navbar title="My Page" />
       <main className="flex-auto">
         <UserInfo nickname={userName} id={userId} />
         <UserDetailFields onChange={handleValueChange} {...values} />
         <UserInfoEditBtn onSubmit={handleSubmit} />
       </main>
-    </Layout>
+    </>
   );
 };
 

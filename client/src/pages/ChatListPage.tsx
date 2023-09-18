@@ -1,13 +1,14 @@
-import Layout from 'components/layout/Layout';
 import ChatList from 'components/chat-list/ChatList';
+import Navbar from 'components/layout/Navbar';
 
 function ChatListPage() {
   return (
-    <Layout title="Messages">
+    <>
+      <Navbar title="Messages" />
       <main className="flex-auto h-[70%] ">
         <ChatList />
       </main>
-    </Layout>
+    </>
   );
 }
 

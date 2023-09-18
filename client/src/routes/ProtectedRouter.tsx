@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useVerityToken } from './../hooks/useVerifyToken';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'recoil/user/atoms';
 import { useQueryClient } from '@tanstack/react-query';
+import Layout from 'components/layout/Layout';
 
 export const ProtectedRouter = () => {
   const queryClient = useQueryClient();
@@ -20,5 +21,9 @@ export const ProtectedRouter = () => {
   }, [isAuthenticated]);
 
   if (!hasToken && isAuthenticated !== 'SUCCESS') return <>로딩 중</>;
-  return <Outlet />;
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  );
 };
