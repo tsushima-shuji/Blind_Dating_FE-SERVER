@@ -20,6 +20,10 @@ export const IntroductionForm = ({ signUpAllValues, setSignUpAllValues }: Props)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (textValue.length < 10) {
+      alert('최소 10글자 이상 작성해주세요.');
+      return;
+    }
     const updatedValues = { ...signUpAllValues, selfIntroduction: textValue };
     setSignUpAllValues(updatedValues);
     postSignUpDataFn(updatedValues);
@@ -37,21 +41,24 @@ export const IntroductionForm = ({ signUpAllValues, setSignUpAllValues }: Props)
         <form className="flex flex-col items-center justify-center" onSubmit={handleSubmit}>
           <main className=" w-full space-y-10 h-[480px] overflow-hidden">
             <textarea
-              className="w-full h-full p-3 text-sm border rounded-lg outline-none resize-none font-NotoSans border-whiteLilac focus:border-black/25 focus:rounded-lg"
-              placeholder="자기 소개를 적어주세요"
-              id=""
+              className="w-full h-full px-3 py-6 text-sm border rounded-lg outline-none resize-none font-NotoSans border-whiteLilac focus:border-black/25 focus:rounded-lg"
+              placeholder="최소 10글자 이상 작성해주세요."
               cols={10}
               rows={10}
               required
               minLength={10}
-              maxLength={300}
+              maxLength={250}
               autoFocus
               value={textValue}
               onChange={handleChange}
             />
           </main>
-          <button className="mt-14 btn-red" disabled={isLoading}>
-            Continue
+
+          <button
+            className={`mt-14 ${textValue.length < 10 ? 'btn-red' : 'btn-red-checkSuccess'}`}
+            disabled={isLoading}
+          >
+            Confirm
           </button>
         </form>
       </main>

@@ -4,7 +4,7 @@ import { SignUpAllValues } from 'pages/SignUpPage';
 import { InterestField } from './InterestField';
 import { INTERESTINGS_CULTURE, INTERESTINGS_SPORTS } from 'assets/config';
 import { interestCountState } from 'recoil/sign-up/selectors';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { interestState } from 'recoil/sign-up/atoms';
 
 type Props = {
@@ -13,12 +13,13 @@ type Props = {
 };
 
 export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
-  const collectInterests = useRecoilValue(interestState);
+  const [collectInterests, setCollectInterests] = useRecoilState(interestState);
   const seletedCount = useRecoilValue(interestCountState);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSignUpAllValues((prev) => ({ ...prev, interests: collectInterests }));
+    setCollectInterests([]);
     onNext();
   };
   return (
