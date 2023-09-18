@@ -2,6 +2,7 @@ import { useModal } from 'hooks/useModal';
 import { DetailField } from './DetailField';
 import { Interests, Question } from 'recoil/user/atoms';
 import { ReactComponent as ArrowRight } from 'assets/icons/Arrow_Right.svg';
+import { useEffect } from 'react';
 
 type Props = {
   id: number;
@@ -16,9 +17,15 @@ type Props = {
 };
 
 export const RecommendedUserCard = (userInfo: Props) => {
-  const { nickname, region, mbti, interests, questions, selfIntroduction } = userInfo;
+  const { id, nickname, region, mbti, interests, questions, selfIntroduction } = userInfo;
   const { isModalOpen, handleToggleBtn } = useModal();
   const interestsSort = interests.sort((cur, next) => cur.id - next.id);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      handleToggleBtn();
+    }
+  }, [id]);
 
   return (
     <>
@@ -31,7 +38,7 @@ export const RecommendedUserCard = (userInfo: Props) => {
             </button>
           </section>
 
-          <section className="px-5 overflow-auto h-5/6">
+          <section className="px-5 overflow-auto scrollbar h-5/6">
             <DetailField answer={questions} />
           </section>
         </main>

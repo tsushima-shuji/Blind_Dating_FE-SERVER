@@ -1,5 +1,4 @@
 import { QUESTIONS } from 'assets/config';
-import React from 'react';
 type Question = {
   id: number;
   status: boolean;
@@ -12,7 +11,7 @@ export const DetailField = ({ answer }: Props) => {
   const answerSort = answer.sort((cur, next) => cur.id - next.id);
 
   return (
-    <section className="overflow-auto">
+    <section>
       {QUESTIONS.map((question, index) => {
         return (
           <div className="mb-6" key={index}>
