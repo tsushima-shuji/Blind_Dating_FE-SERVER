@@ -1,26 +1,26 @@
-import React from 'react';
-import { useRecoilState } from 'recoil';
-import { interestState } from 'recoil/sign-up/atoms';
+import React, { useState } from 'react';
 
 type Props = {
   label: string;
   interestings: string[];
+  collectAnswers: string[];
+  setCollectAnswers: React.Dispatch<React.SetStateAction<string[]>>;
 };
-export const InterestField = ({ label, interestings }: Props) => {
-  const [seletedInterest, setSeletedInterest] = useRecoilState(interestState);
+export const InterestField = (props: Props) => {
+  const { label, interestings, collectAnswers, setCollectAnswers } = props;
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { value } = e.currentTarget;
 
-    if (seletedInterest.length < 5 && !seletedInterest.includes(value)) {
-      setSeletedInterest((prev) => [...prev, value]);
+    if (collectAnswers.length < 5 && !collectAnswers.includes(value)) {
+      setCollectAnswers((prev) => [...prev, value]);
     }
 
-    if (seletedInterest.includes(value)) {
-      const updatedInterests = seletedInterest.filter(
+    if (collectAnswers.includes(value)) {
+      const updatedInterests = collectAnswers.filter(
         (selectedInterest) => selectedInterest !== value
       );
-      setSeletedInterest(updatedInterests);
+      setCollectAnswers(updatedInterests);
     }
   };
   return (
@@ -34,7 +34,7 @@ export const InterestField = ({ label, interestings }: Props) => {
       {interestings.map((interest) => {
         return (
           <button
-            className={`${seletedInterest.includes(interest) ? 'tag-selected' : 'tag'}`}
+            className={`${collectAnswers.includes(interest) ? 'tag-selected' : 'tag'}`}
             key={interest}
             type="button"
             value={interest}

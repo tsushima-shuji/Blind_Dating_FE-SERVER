@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Header } from 'components/layout/Header';
 import { SignUpAllValues } from 'pages/SignUpPage';
 import { InterestField } from './InterestField';
 import { INTERESTINGS_CULTURE, INTERESTINGS_SPORTS } from 'assets/config';
-import { interestCountState } from 'recoil/sign-up/selectors';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { interestState } from 'recoil/sign-up/atoms';
 
 type Props = {
   onNext: () => void;
@@ -13,15 +10,15 @@ type Props = {
 };
 
 export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
-  const [collectInterests, setCollectInterests] = useRecoilState(interestState);
-  const seletedCount = useRecoilValue(interestCountState);
+
+  const [collectAnswers, setCollectAnswers] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSignUpAllValues((prev) => ({ ...prev, interests: collectInterests }));
-    setCollectInterests([]);
+    setSignUpAllValues((prev) => ({ ...prev, interests: collectAnswers }));
     onNext();
   };
+  
   return (
     <div className="w-full h-full">
       <Header progressWidth="4/5" title="Your interests" />
@@ -33,14 +30,24 @@ export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
       <main className="mt-10 px-9">
         <form className="flex flex-col items-center justify-center w-full" onSubmit={handleSubmit}>
           <main className="h-[480px] overflow-y-auto no-scrollbar">
-            <InterestField label="스포츠" interestings={INTERESTINGS_SPORTS} />
-            <InterestField label="문화 및 활동" interestings={INTERESTINGS_CULTURE} />
+            <InterestField
+              label="스포츠"
+              interestings={INTERESTINGS_SPORTS}
+              collectAnswers={collectAnswers}
+              setCollectAnswers={setCollectAnswers}
+            />
+            <InterestField
+              label="문화 및 활동"
+              interestings={INTERESTINGS_CULTURE}
+              collectAnswers={collectAnswers}
+              setCollectAnswers={setCollectAnswers}
+            />
           </main>
 
           <button
-            className={`mt-14 ${seletedCount < 3 ? 'btn-red' : 'btn-red-checkSuccess'}`}
-            disabled={seletedCount < 3}
-          >{`Continue ( ${seletedCount} / 5 )`}</button>
+            className={`mt-14 ${collectAnswers.length < 3 ? 'btn-red' : 'btn-red-checkSuccess'}`}
+            disabled={collectAnswers.length < 3}
+          >{`Continue ( ${collectAnswers.length} / 5 )`}</button>
         </form>
       </main>
     </div>

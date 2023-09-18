@@ -11,6 +11,7 @@ type Props = {
 
 const PersonalityTestForm = ({ onNext, setSignUpAllValues }: Props) => {
   const [collectAnswers, setCollectAnswers] = useState<(boolean | null)[]>(Array(8).fill(null));
+  const [collectAnswersCount, setCollectAnswersCount] = useState<number>(0);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,9 +27,9 @@ const PersonalityTestForm = ({ onNext, setSignUpAllValues }: Props) => {
         질문에 대한 답변은 상대방에게 내가 어떤 사람인지 알리는데 많은 도움이 됩니다.
       </p>
 
-      <main className="mt-10 px-9">
+      <main className="px-6 mt-10">
         <form className="flex flex-col items-center justify-center w-full " onSubmit={handleSubmit}>
-          <main className="space-y-10 h-[480px] overflow-y-auto no-scrollbar">
+          <main className="space-y-10 pl-1 h-[480px] overflow-y-auto scrollbar">
             {QUESTIONS.map((question, index) => {
               return (
                 <QuestionField
@@ -36,12 +37,16 @@ const PersonalityTestForm = ({ onNext, setSignUpAllValues }: Props) => {
                   question={question}
                   index={index + 1}
                   setCollectAnswers={setCollectAnswers}
+                  setCollectAnswersCount={setCollectAnswersCount}
                 />
               );
             })}
           </main>
-          <button className="mt-14 btn-red" disabled={collectAnswers.includes(null)}>
-            Continue
+          <button
+            className={`mt-14 ${collectAnswersCount === 8 ? 'btn-red-checkSuccess' : 'btn-red'}`}
+            disabled={collectAnswersCount !== 8}
+          >
+            {`Continue ( ${collectAnswersCount} / 8 ) `}
           </button>
         </form>
       </main>

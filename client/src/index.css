@@ -13,6 +13,14 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .scrollbar::-webkit-scrollbar {
+    @apply w-2.5;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply h-1 rounded-lg opacity-100 bg-grayLignt/60;
+  }
 }
 
 @layer components {

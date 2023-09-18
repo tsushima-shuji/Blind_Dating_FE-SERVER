@@ -4,9 +4,11 @@ type Props = {
   question: string;
   index: number;
   setCollectAnswers: React.Dispatch<React.SetStateAction<(boolean | null)[]>>;
+  setCollectAnswersCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const QuestionField = ({ question, index, setCollectAnswers }: Props) => {
+export const QuestionField = (props: Props) => {
+  const { question, index, setCollectAnswers, setCollectAnswersCount } = props;
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const handleAnswerClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -19,6 +21,10 @@ export const QuestionField = ({ question, index, setCollectAnswers }: Props) => 
     setCollectAnswers((prev) => {
       const updatedAnswers = [...prev];
       updatedAnswers[index - 1] = answer;
+
+      const nullArr = updatedAnswers.filter((val) => val !== null);
+
+      setCollectAnswersCount(nullArr.length);
       return updatedAnswers;
     });
   };
