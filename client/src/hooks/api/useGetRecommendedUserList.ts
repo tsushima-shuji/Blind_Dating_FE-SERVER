@@ -16,6 +16,7 @@ export const useGetRecommendedUserList = () => {
 
         return nextPage === currentPage.data.totalPages ? null : nextPage;
       },
+      cacheTime: 0,
     }
   );
 
