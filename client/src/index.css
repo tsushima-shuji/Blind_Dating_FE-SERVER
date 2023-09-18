@@ -37,15 +37,15 @@
   }
 
   .btn-red {
-    @apply px-8 text-base font-bold transition duration-300 border font-NotoSans text-redAmaranth border-whiteLilac hover:text-white w-72 h-14 hover:bg-redAmaranth hover:shadow-lg rounded-2xl;
+    @apply px-8 text-base font-bold transition duration-300 border font-NotoSans text-redAmaranth border-redAmaranth/70 hover:text-white w-72 h-14 hover:bg-redAmaranth hover:shadow-lg rounded-2xl;
   }
 
   .btn-red-checkSuccess {
-    @apply px-8 text-base font-bold text-white transition duration-300 border shadow-lg font-NotoSans bg-redAmaranth w-72 h-14 rounded-2xl;
+    @apply px-8 text-base font-bold text-white transition duration-300 shadow-lg border-redAmaranth font-NotoSans bg-redAmaranth w-72 h-14 rounded-2xl;
   }
 
   .btn-check {
-    @apply h-12 text-xs font-semibold text-center transition duration-300 border border-whiteLilac w-14 font-NotoSans rounded-2xl text-redAmaranth hover:bg-redAmaranth hover:text-white hover:shadow-lg;
+    @apply h-12 text-xs font-semibold text-center transition duration-300 border border-redAmaranth/80 w-14 font-NotoSans rounded-2xl text-redAmaranth hover:bg-redAmaranth hover:text-white hover:shadow-lg;
   }
 
   .btn-checkSuccess {

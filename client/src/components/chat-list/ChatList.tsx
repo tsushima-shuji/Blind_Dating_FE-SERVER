@@ -4,6 +4,7 @@ import { useGetChatRooms } from 'hooks/api/useGetChatRooms';
 import { useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { chatListState, chatsSettingBtnState } from 'recoil/chat/atoms';
+import { NoChatListData } from './NoChatListData';
 
 function ChatList() {
   const { connectHandler, disconnectHandler, exitHandler } = useHandleChatList();
@@ -48,17 +49,19 @@ function ChatList() {
   }
 
   return (
-    <ul className="flex flex-col w-full h-full px-8 overflow-auto flex-3">
+    <>
       {chatList?.length ? (
-        <>
+        <ul className="flex flex-col w-full h-full px-8 overflow-auto flex-3">
           {chatList.map((chat) => (
             <ChatItem key={chat.roomId} onClick={() => handleExit(chat.roomId)} {...chat} />
           ))}
-        </>
+        </ul>
       ) : (
-        <li>채팅방이 존재하지 않습니다.</li>
+        <main className="flex items-center justify-center mt-20">
+          <NoChatListData />
+        </main>
       )}
-    </ul>
+    </>
   );
 }
 
