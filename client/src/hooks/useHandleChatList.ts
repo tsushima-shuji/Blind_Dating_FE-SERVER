@@ -5,7 +5,7 @@ import { userState } from 'recoil/user/atoms';
 import SockJS from 'sockjs-client';
 
 const useHandleChatList = () => {
-  const client = Stomp.over(() => new SockJS(`${import.meta.env.VITE_API_ADDRESS}stomp/chatroom`));
+  const client = Stomp.over(() => new SockJS(`${import.meta.env.VITE_API_ADDRESS}/stomp/chatroom`));
   const setChatList = useSetRecoilState(chatListState);
   const { userId } = useRecoilValue(userState);
 
