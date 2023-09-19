@@ -1,7 +1,5 @@
 import { atom } from 'recoil';
 
-
-
 export type Question = {
   id: number;
   status: boolean;
@@ -15,6 +13,7 @@ export type Interests = {
 export type UserState = {
   hasToken: boolean;
   userId: number;
+  userAccount: string;
   userName: string;
   region: string;
   mbti: string;
@@ -31,6 +30,7 @@ export const userState = atom<UserState>({
   default: {
     hasToken: false,
     userId: 0,
+    userAccount: '',
     userName: '',
     region: '',
     mbti: '',

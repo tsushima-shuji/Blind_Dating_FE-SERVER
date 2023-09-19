@@ -23,6 +23,7 @@ export const useVerityToken = () => {
       setUserState({
         hasToken: true,
         userId: res.data.id,
+        userAccount: res.data.userId,
         userName: res.data.nickname,
         region: res.data.region,
         mbti: res.data.mbti,
@@ -47,6 +48,7 @@ export const useVerityToken = () => {
       setUserState({
         hasToken: true,
         userId: res.data.id,
+        userAccount: res.data.userId,
         userName: res.data.nickname,
         region: res.data.region,
         mbti: res.data.mbti,

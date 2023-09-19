@@ -15,7 +15,8 @@ export type UserInfo = {
 };
 
 const ProfilePage = () => {
-  const { region, mbti, selfIntroduction, interests, userName, userId } = useRecoilValue(userState);
+  const { region, mbti, selfIntroduction, interests, userName, userAccount } =
+    useRecoilValue(userState);
   const { mutate } = usePostEditProfile();
   const [values, setValues] = useState<UserInfo>({
     region,
@@ -40,7 +41,7 @@ const ProfilePage = () => {
     <>
       <Navbar title="My Page" />
       <main className="flex-auto">
-        <UserInfo nickname={userName} id={userId} />
+        <UserInfo nickname={userName} id={userAccount} />
         <UserDetailFields onChange={handleValueChange} {...values} />
         <UserInfoEditBtn onSubmit={handleSubmit} />
       </main>

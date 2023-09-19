@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { Interests, Question, userState } from 'recoil/user/atoms';
 
-
 type ApiResponse = {
   message: string;
   status: string;
   data: {
     accessToken: string;
     id: number;
+    userId: string;
     nickname: string;
     region: string;
     mbti: string;
@@ -38,6 +38,7 @@ export const usePostLogin = () => {
         setUserState({
           hasToken: true,
           userId: res.data.id,
+          userAccount: res.data.userId,
           userName: res.data.nickname,
           region: res.data.region,
           mbti: res.data.mbti,
