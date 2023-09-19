@@ -1,9 +1,11 @@
 import { ReactComponent as Exit } from 'assets/icons/exit.svg';
+import { useNavigate } from 'react-router-dom';
 
-type Props = { user: string; onExit: () => void };
+type Props = { user: string };
 
 const ChatUser = (props: Props) => {
-  const { user, onExit } = props;
+  const { user } = props;
+  const navigate = useNavigate();
 
   return (
     <section className="flex items-center w-full gap-2 px-10 py-8 max-h-[15%]">
@@ -17,7 +19,9 @@ const ChatUser = (props: Props) => {
       <button
         type="button"
         className="flex-none w-12 h-12 p-3 border text-s text-labelColor border-whiteSmoke rounded-xl hover:text-redAmaranth hover:border-whiteLilac"
-        onClick={onExit}
+        onClick={() => {
+          navigate('/chat-list');
+        }}
       >
         <Exit />
       </button>
