@@ -5,7 +5,7 @@ import ChatUser from 'components/chat/ChatUser';
 import AuthLayout from 'components/layout/auth-layout/AuthLayout';
 import useInfiniteScroll from 'hooks/UseInfiniteScroll';
 import { useGetChatData } from 'hooks/api/useGetChat';
-import useHandleChat from 'hooks/useHandleChat';
+import useHandleChat from 'hooks/api/useHandleChat';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -67,7 +67,7 @@ const ChatPage = () => {
 
   return (
     <AuthLayout>
-      <ChatUser user={data?.pages[0].data.otherUserNickname} onExit={handleExit} />
+      <ChatUser user={data?.pages[0].data.otherUserNickname} />
       <ChatMessages scrollRef={top} sectionRef={section} />
       <ChatForm onMessage={handleMessage} roomStatus={data?.pages[0].data.roomStatus} />
     </AuthLayout>

@@ -1,4 +1,4 @@
-import useHandleChatList from 'hooks/useHandleChatList';
+import useHandleChatList from 'hooks/api/useHandleChatList';
 import ChatItem from './ChatItem';
 import { useGetChatRooms } from 'hooks/api/useGetChatRooms';
 import { useEffect } from 'react';

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useVerityToken } from './../hooks/useVerifyToken';
+import { useVerityToken } from '../hooks/api/useVerifyToken';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'recoil/user/atoms';
 import { useQueryClient } from '@tanstack/react-query';
