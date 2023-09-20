@@ -1,11 +1,11 @@
 import DiscoverUser from 'components/discover/DiscoverUser';
-import Navbar from 'components/layout/Navbar';
+import Header from 'components/layout/Header';
 
 function DiscoverPage() {
   return (
     <>
-      <Navbar title="Discover" />
-      <main className="flex flex-col items-center justify-center flex-auto">
+      <Header title="Discover" />
+      <main className="flex-auto h-[70%]">
         <DiscoverUser />
       </main>
     </>

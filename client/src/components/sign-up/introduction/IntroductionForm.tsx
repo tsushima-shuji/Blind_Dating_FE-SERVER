@@ -1,4 +1,4 @@
-import { Header } from 'components/layout/Header';
+import { Header } from 'components/layout/auth-layout/Header';
 import { usePostSignUpData } from 'hooks/api/usePostSignUpData';
 import { SignUpAllValues } from 'pages/SignUpPage';
 import React, { useState } from 'react';

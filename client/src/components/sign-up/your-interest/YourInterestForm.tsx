@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header } from 'components/layout/Header';
+import { Header } from 'components/layout/auth-layout/Header';
 import { SignUpAllValues } from 'pages/SignUpPage';
 import { InterestField } from './InterestField';
 import { INTERESTINGS_CULTURE, INTERESTINGS_SPORTS } from 'assets/config';
@@ -10,7 +10,6 @@ type Props = {
 };
 
 export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
-
   const [collectAnswers, setCollectAnswers] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,7 +17,7 @@ export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
     setSignUpAllValues((prev) => ({ ...prev, interests: collectAnswers }));
     onNext();
   };
-  
+
   return (
     <div className="w-full h-full">
       <Header progressWidth="4/5" title="Your interests" />

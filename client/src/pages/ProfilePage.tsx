@@ -1,4 +1,4 @@
-import Navbar from 'components/layout/Navbar';
+import Header from 'components/layout/Header';
 import UserDetailFields from 'components/profile/detail/DetailFields';
 import UserInfo from 'components/profile/UserInfo';
 import UserInfoEditBtn from 'components/profile/UserInfoEditBtn';
@@ -39,9 +39,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Navbar title="My Page" />
-      <main className="flex-auto">
-        <UserInfo nickname={userName} id={userAccount} />
+      <Header title="My Page" />
+      <main className="flex-auto h-[70%] py-10 sm:py-0 overflow-auto">
+        <UserInfo nickname={userName} id={userId} />
         <UserDetailFields onChange={handleValueChange} {...values} />
         <UserInfoEditBtn onSubmit={handleSubmit} />
       </main>

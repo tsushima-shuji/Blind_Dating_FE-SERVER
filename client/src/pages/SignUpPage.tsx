@@ -1,4 +1,4 @@
-import NoHeaderFooterLayout from 'components/layout/NoHeaderFooterLayout';
+import AuthLayout from 'components/layout/auth-layout/AuthLayout';
 import { IntroductionForm } from 'components/sign-up/introduction/IntroductionForm';
 import PersonalityTestForm from 'components/sign-up/personality-test/PersonalityTestForm';
 import { ProfileDetailsForm } from 'components/sign-up/profile-details/ProfileDetailsForm';
@@ -22,40 +22,38 @@ function SignUpPage() {
   const [signUpAllValues, setSignUpAllValues] = useState<SignUpAllValues>({});
 
   return (
-    <NoHeaderFooterLayout>
-      <>
-        {step === 'profileForm' && (
-          <ProfileForm
-            onNext={() => setStep('profileDetailsForm')}
-            setSignUpAllValues={setSignUpAllValues}
-          />
-        )}
-        {step === 'profileDetailsForm' && (
-          <ProfileDetailsForm
-            onNext={() => setStep('personalityTestForm')}
-            setSignUpAllValues={setSignUpAllValues}
-          />
-        )}
-        {step === 'personalityTestForm' && (
-          <PersonalityTestForm
-            onNext={() => setStep('yourInterestForm')}
-            setSignUpAllValues={setSignUpAllValues}
-          />
-        )}
-        {step === 'yourInterestForm' && (
-          <YourInterestForm
-            onNext={() => setStep('introduction')}
-            setSignUpAllValues={setSignUpAllValues}
-          />
-        )}
-        {step === 'introduction' && (
-          <IntroductionForm
-            setSignUpAllValues={setSignUpAllValues}
-            signUpAllValues={signUpAllValues}
-          />
-        )}
-      </>
-    </NoHeaderFooterLayout>
+    <AuthLayout>
+      {step === 'profileForm' && (
+        <ProfileForm
+          onNext={() => setStep('profileDetailsForm')}
+          setSignUpAllValues={setSignUpAllValues}
+        />
+      )}
+      {step === 'profileDetailsForm' && (
+        <ProfileDetailsForm
+          onNext={() => setStep('personalityTestForm')}
+          setSignUpAllValues={setSignUpAllValues}
+        />
+      )}
+      {step === 'personalityTestForm' && (
+        <PersonalityTestForm
+          onNext={() => setStep('yourInterestForm')}
+          setSignUpAllValues={setSignUpAllValues}
+        />
+      )}
+      {step === 'yourInterestForm' && (
+        <YourInterestForm
+          onNext={() => setStep('introduction')}
+          setSignUpAllValues={setSignUpAllValues}
+        />
+      )}
+      {step === 'introduction' && (
+        <IntroductionForm
+          setSignUpAllValues={setSignUpAllValues}
+          signUpAllValues={signUpAllValues}
+        />
+      )}
+    </AuthLayout>
   );
 }
 

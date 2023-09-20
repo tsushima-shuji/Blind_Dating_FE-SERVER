@@ -6,6 +6,7 @@ import DiscoverPage from 'pages/DiscoverPage';
 import ChatListPage from 'pages/ChatListPage';
 import ChatPage from 'pages/ChatPage';
 import ProfilePage from 'pages/ProfilePage';
+import ReceivedLikesPage from 'pages/ReceivedLikesPage';
 import { ProtectedRouter } from './ProtectedRouter';
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         element: <ProtectedRouter />,
         children: [
           { path: '/discover', element: <DiscoverPage /> },
+          { path: '/likes', element: <ReceivedLikesPage /> },
           { path: '/chat-list', element: <ChatListPage /> },
           { path: '/chat-list/:chatId', element: <ChatPage /> },
           { path: '/profile', element: <ProfilePage /> },

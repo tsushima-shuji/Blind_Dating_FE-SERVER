@@ -5,7 +5,7 @@ import { SubmitHandler } from 'react-hook-form';
 import { SignUpAllValues } from 'pages/SignUpPage';
 import { usePostCheckNickname } from 'hooks/api/usePostCheckNickname';
 import { usePostCheckId } from 'hooks/api/usePostCheckId';
-import { Header } from 'components/layout/Header';
+import { Header } from 'components/layout/auth-layout/Header';
 
 type Props = {
   onNext: () => void;

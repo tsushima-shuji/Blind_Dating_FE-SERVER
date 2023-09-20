@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QuestionField } from './QuestionField';
 import { QUESTIONS } from 'assets/config';
 import { SignUpAllValues } from 'pages/SignUpPage';
-import { Header } from 'components/layout/Header';
+import { Header } from 'components/layout/auth-layout/Header';
 
 type Props = {
   onNext: () => void;

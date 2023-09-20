@@ -43,7 +43,7 @@ export const LikeDisLikeBox = (props: Props) => {
     }
   };
   return (
-    <section className="flex justify-center gap-8 mt-8">
+    <section className="flex justify-center gap-8">
       <button className="flex items-center justify-center bg-white rounded-full shadow-3xl w-14 h-14">
         <ThumbDown onClick={handleDisLike} />
       </button>

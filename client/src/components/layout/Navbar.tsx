@@ -1,18 +1,15 @@
-import ChatSettingBtn from 'components/chat-list/ChatSettingBtn';
-import LogoutBtn from 'components/profile/logout/LogoutBtn';
+import { ReactComponent as MenuIcon } from 'assets/icons/menu_icon.svg';
+import { Link } from 'react-router-dom';
 
-type Props = {
-  title: string;
-};
-
-const Navbar = ({ title }: Props) => {
+export const NavBar = () => {
   return (
-    <header className="flex items-center justify-between flex-none my-10 ml-10 mr-4 ">
-      <h1 className="text-2xl font-bold font-Lora">{title}</h1>
-      {title === 'Messages' && <ChatSettingBtn />}
-      {title === 'My Page' && <LogoutBtn />}
-    </header>
+    <nav className="flex items-center justify-between px-6 py-3 border-b border-black/10 h-14">
+      <Link to="/discover">
+        <h4 className="text-[1.7rem] font-bold font-Lobster text-redAmaranth">blind</h4>
+      </Link>
+      <button>
+        <MenuIcon />
+      </button>
+    </nav>
   );
 };
-
-export default Navbar;

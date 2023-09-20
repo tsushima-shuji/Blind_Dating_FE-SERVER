@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import ChatForm from 'components/chat/ChatForm';
 import ChatMessages from 'components/chat/ChatMessages';
 import ChatUser from 'components/chat/ChatUser';
-import NoHeaderFooterLayout from 'components/layout/NoHeaderFooterLayout';
+import AuthLayout from 'components/layout/auth-layout/AuthLayout';
 import useInfiniteScroll from 'hooks/UseInfiniteScroll';
 import { useGetChatData } from 'hooks/api/useGetChat';
 import useHandleChat from 'hooks/useHandleChat';
@@ -66,11 +66,11 @@ const ChatPage = () => {
   };
 
   return (
-    <NoHeaderFooterLayout>
-      <ChatUser user={data?.pages[0].data.otherUserNickname} />
+    <AuthLayout>
+      <ChatUser user={data?.pages[0].data.otherUserNickname} onExit={handleExit} />
       <ChatMessages scrollRef={top} sectionRef={section} />
       <ChatForm onMessage={handleMessage} roomStatus={data?.pages[0].data.roomStatus} />
-    </NoHeaderFooterLayout>
+    </AuthLayout>
   );
 };
 

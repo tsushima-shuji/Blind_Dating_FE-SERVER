@@ -1,4 +1,4 @@
-import NoHeaderFooterLayout from 'components/layout/NoHeaderFooterLayout';
+import AuthLayout from 'components/layout/auth-layout/AuthLayout';
 import { Link } from 'react-router-dom';
 import { useModal } from 'hooks/useModal';
 import { LoginForm } from 'components/login/LoginForm';
@@ -10,7 +10,7 @@ function LoginPage() {
   const { isModalOpen, handleToggleModal } = useModal();
 
   return (
-    <NoHeaderFooterLayout>
+    <AuthLayout>
       <header>
         <h1 className="mt-8 font-Lobster text-8xl text-redAmaranth ">blind</h1>
       </header>
@@ -44,7 +44,7 @@ function LoginPage() {
           <img src={apple} alt="apple icon" />
         </div>
       </section>
-    </NoHeaderFooterLayout>
+    </AuthLayout>
   );
 }
 
