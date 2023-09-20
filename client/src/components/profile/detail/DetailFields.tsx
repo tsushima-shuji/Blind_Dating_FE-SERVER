@@ -22,7 +22,7 @@ type DetailInfo = {
 
 const UserDetailFields = (props: Props) => {
   const { interests, selfIntroduction, region, mbti, onChange } = props;
-  const { isModalOpen, handleToggleModal } = useModal();
+  const { isModalOpen, handleToggleModal, handleToggleBtn } = useModal();
   const [clickedField, setClickedField] = useState<string>('');
 
   const handleFocus = (name: string) => {
@@ -92,6 +92,7 @@ const UserDetailFields = (props: Props) => {
             title={clickedField}
             onChange={handleChangeValue}
             onToggleModal={handleToggleModal}
+            onToggleBtn={handleToggleBtn}
           />
         )}
         {detailInfo.map((field) => (
