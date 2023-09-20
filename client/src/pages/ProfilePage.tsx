@@ -41,7 +41,7 @@ const ProfilePage = () => {
     <>
       <Header title="My Page" />
       <main className="flex-auto h-[70%] py-10 sm:py-0 overflow-auto">
-        <UserInfo nickname={userName} id={userId} />
+        <UserInfo nickname={userName} id={userAccount} />
         <UserDetailFields onChange={handleValueChange} {...values} />
         <UserInfoEditBtn onSubmit={handleSubmit} />
       </main>
