@@ -12,7 +12,7 @@ const ChatItem = ({ ...props }) => {
 
   return (
     <>
-      <li className="flex py-2 hover:bg-redAmaranth/10">
+      <li className="flex px-2 py-2 hover:bg-redAmaranth/10">
         <button
           type="button"
           className="flex items-center w-full gap-4 overflow-hidden text-left hover:cursor-pointer"

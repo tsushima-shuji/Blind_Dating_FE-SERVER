@@ -71,7 +71,7 @@ const DetailInfoTags = (props: Props) => {
       ref={outsideRef}
       onClick={handleClickedOutside}
     >
-      <div className="modal-container my-auto  fixed w-[375px] h-[700px] px-10 py-20 -translate-x-1/2 -translate-y-1/2 bg-white border top-1/2 left-1/2 z-1 rounded-2xl">
+      <div className="modal-container my-auto  fixed w-full sm:w-[375px] h-full sm:h-[700px] px-10 py-20 -translate-x-1/2 -translate-y-1/2 bg-white sm:border top-1/2 left-1/2 z-1 sm:rounded-2xl">
         <div className="flex flex-col items-center justify-center gap-10 ">
           <header>
             <h1 className="text-lg font-bold font-Lora">{tags[title].title}</h1>

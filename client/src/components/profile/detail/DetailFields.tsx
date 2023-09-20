@@ -11,6 +11,8 @@ type Props = {
   selfIntroduction: string;
   region: string;
   mbti: string;
+  isTextareaActive: boolean;
+  onToggleTextarea: () => void;
   onChange: (field: string, value: string | string[]) => void;
 };
 
@@ -21,7 +23,15 @@ type DetailInfo = {
 };
 
 const UserDetailFields = (props: Props) => {
-  const { interests, selfIntroduction, region, mbti, onChange } = props;
+  const {
+    interests,
+    selfIntroduction,
+    region,
+    mbti,
+    onChange,
+    onToggleTextarea,
+    isTextareaActive,
+  } = props;
   const { isModalOpen, handleToggleModal, handleToggleBtn } = useModal();
   const [clickedField, setClickedField] = useState<string>('');
 
@@ -77,7 +87,11 @@ const UserDetailFields = (props: Props) => {
         <UserIntrodudction
           data={selfIntroduction}
           name="selfIntroduction"
-          onFocus={handleFocus}
+          isTextareaActive={isTextareaActive}
+          onToggleTextarea={(name) => {
+            handleFocus(name);
+            onToggleTextarea();
+          }}
           onChange={handleChangeValue}
         />
       ),

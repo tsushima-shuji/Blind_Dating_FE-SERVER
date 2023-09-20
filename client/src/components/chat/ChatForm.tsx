@@ -29,7 +29,7 @@ const ChatForm = (props: Props) => {
   };
 
   return (
-    <section className="w-full max-h-[15%] px-10 py-8">
+    <section className="w-full max-h-[15%] px-8 py-8">
       <form className="flex gap-2">
         <textarea
           className="w-full p-2 text-sm border rounded resize-none border-whiteLilac"

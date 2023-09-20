@@ -25,8 +25,11 @@ const ProfilePage = () => {
     interests: interests.map((interest) => interest.interestName),
   });
   const setUserState = useSetRecoilState(userState);
+  const [isTextareaActive, setIsTextareaActive] = useState<boolean>(false);
+  const [isSubmitActive, setIsSubmitActive] = useState<boolean>(false);
 
   const handleValueChange = (field: string, value: string | string[]) => {
+    setIsSubmitActive(true);
     const selectedValue = value.length === 1 ? value[0] : value;
     setValues((prev) => ({ ...prev, [field]: selectedValue }));
   };
@@ -35,6 +38,11 @@ const ProfilePage = () => {
     mutate(values);
     const convertInterests = values.interests.map((name, id) => ({ id, interestName: name }));
     setUserState((prev) => ({ ...prev, ...values, interests: convertInterests }));
+    setIsSubmitActive(false);
+  };
+
+  const handleTextArea = () => {
+    setIsTextareaActive(true);
   };
 
   return (
@@ -42,8 +50,19 @@ const ProfilePage = () => {
       <Header title="My Page" />
       <main className="flex-auto h-[70%] py-10 sm:py-0 overflow-auto">
         <UserInfo nickname={userName} id={userAccount} />
-        <UserDetailFields onChange={handleValueChange} {...values} />
-        <UserInfoEditBtn onSubmit={handleSubmit} />
+        <UserDetailFields
+          onChange={handleValueChange}
+          isTextareaActive={isTextareaActive}
+          onToggleTextarea={handleTextArea}
+          {...values}
+        />
+        <UserInfoEditBtn
+          onSubmit={() => {
+            setIsTextareaActive(false);
+            handleSubmit();
+          }}
+          isSubmitActive={isSubmitActive}
+        />
       </main>
     </>
   );
