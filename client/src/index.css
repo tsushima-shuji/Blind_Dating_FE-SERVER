@@ -47,7 +47,7 @@
   }
 
   .btn-red-checkSuccess {
-    @apply px-8 text-base font-bold text-white transition duration-300 shadow-lg border-redAmaranth font-NotoSans bg-redAmaranth w-72 h-14 rounded-2xl;
+    @apply px-8 text-base font-bold text-white transition duration-300 hover:shadow-lg border-redAmaranth font-NotoSans bg-redAmaranth w-72 h-14 rounded-2xl;
   }
 
   .btn-check {

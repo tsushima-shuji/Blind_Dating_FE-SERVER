@@ -15,7 +15,7 @@ export const usePostLogout = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const { mutate } = useMutation<ApiResponse, AxiosError>(postLogout, {
+  const { mutate: postLogoutFn } = useMutation<ApiResponse, AxiosError>(postLogout, {
     onSuccess: () => {
       queryClient.removeQueries();
       navigate('/');
@@ -25,5 +25,5 @@ export const usePostLogout = () => {
     },
   });
 
-  return { mutate };
+  return { postLogoutFn };
 };

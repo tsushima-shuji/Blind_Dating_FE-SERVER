@@ -221,7 +221,7 @@ export const ProfileForm = ({ onNext, setSignUpAllValues }: Props) => {
             </div>
           </main>
 
-          <button className="mt-14 btn-red">Continue</button>
+          <button className="mt-14 btn-red-checkSuccess">Continue</button>
         </form>
       </main>
     </div>

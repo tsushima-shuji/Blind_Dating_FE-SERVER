@@ -108,7 +108,11 @@ export const ProfileDetailsForm = ({ onNext, setSignUpAllValues }: Props) => {
           </main>
 
           <button
-            className="mt-14 btn-red"
+            className={`mt-14 ${
+              collectValues.gender && collectValues.region && collectValues.mbti
+                ? 'btn-red-checkSuccess'
+                : 'btn-red'
+            } `}
             type="submit"
             disabled={!collectValues.gender || !collectValues.region || !collectValues.mbti}
           >
