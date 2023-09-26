@@ -18,7 +18,7 @@ export const NavBar = () => {
       </Link>
       <button onClick={handleToggleBtn}>{isModalOpen ? <CloseIcon /> : <MenuIcon />}</button>
       {isModalOpen && (
-        <div className="absolute top-[56px] right-0 left-0 bg-white h-[100vh] w-full px-6 ">
+        <section className="absolute top-[56px] right-0 left-0 bg-white h-[100vh] w-full px-6 z-50">
           <ul
             className="flex flex-col gap-8 py-8 font-semibold text-nightRider/80 font-NotoSans"
             onClick={handleToggleBtn}
@@ -41,7 +41,7 @@ export const NavBar = () => {
               <button onClick={handleLogout}>로그아웃</button>
             </li>
           </ul>
-        </div>
+        </section>
       )}
     </nav>
   );
