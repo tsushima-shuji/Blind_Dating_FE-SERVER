@@ -1,7 +1,6 @@
 import { useModal } from 'hooks/useModal';
 import { DetailField } from './DetailField';
 import { Interests, Question } from 'recoil/user/atoms';
-import { ReactComponent as ArrowRight } from 'assets/icons/Arrow_Right.svg';
 import { useEffect } from 'react';
 
 type Props = {
@@ -30,48 +29,46 @@ export const RecommendedUserCard = (userInfo: Props) => {
   return (
     <>
       {isModalOpen ? (
-        <main className="h-[30rem] w-80 rounded-xl border-2 border-redAmaranth/90  bg-white shadow-3xl">
-          <section className="flex justify-end pt-3 pr-2 mb-3">
+        <article className="h-[27rem] sm:h-[30rem] w-full space-y-4 overflow-auto rounded-lg border-2 px-2 pt-2 pb-4 border-redAmaranth/90  bg-white shadow-3xl">
+          <section className="flex justify-end ">
             <button type="button" className="flex items-center" onClick={handleToggleBtn}>
-              <div className="font-bold text-nightRider text-s font-NotoSans">Back </div>
-              <ArrowRight />
+              <div className="text-xs font-medium text-nightRider font-NotoSans">{`<< Back`}</div>
             </button>
           </section>
 
-          <section className="px-5 overflow-auto scrollbar h-5/6">
+          <section className="h-[90%] px-5 overflow-auto scrollbar">
             <DetailField answer={questions} />
           </section>
-        </main>
+        </article>
       ) : (
-        <main className="h-[30rem] w-80 rounded-xl border-2 border-redAmaranth/90  bg-redAmaranth/90 shadow-3xl">
-          <section className="flex justify-end pt-3 pr-2">
-            <button type="button" className="flex items-center" onClick={handleToggleBtn}>
-              <div className="font-bold text-s text-nightRider font-NotoSans">More </div>
-              <ArrowRight />
+        <article className="h-[27rem] sm:h-[30rem] w-full rounded-lg border-2 px-2 pt-2 pb-4 border-redAmaranth/90  bg-redAmaranth/90 shadow-3xl">
+          <section className="flex justify-end ">
+            <button type="button" onClick={handleToggleBtn}>
+              <div className="text-xs font-medium text-whiteLilac/80 font-NotoSans">{`More >>`}</div>
             </button>
           </section>
 
-          <header className="flex justify-between w-full px-8 pt-3 mb-6">
-            <div>
+          <header className="flex justify-start w-full gap-4 px-4 pt-2 mb-6">
+            <div className="flex items-center justify-center text-lg font-bold bg-white rounded-full shadow-3xl w-14 h-14"></div>
+
+            <div className="pt-2">
               <p className="text-xl font-bold text-white font-Lora">{nickname}</p>
-              <p>
-                <span className="text-sm text-white font-Lora ">#{region}</span>{' '}
-                <span className="text-sm text-white font-Lora ">#{mbti}</span>
+              <p className="mt-[-4px]">
+                <span className="font-light text-white text-s font-Lora ">#{region}</span>{' '}
+                <span className="font-light text-white text-s font-Lora ">#{mbti}</span>
               </p>
             </div>
-
-            <div className="flex items-center justify-center text-lg font-bold bg-white rounded-full shadow-3xl w-14 h-14"></div>
           </header>
 
-          <section className="flex flex-col w-full h-64 gap-3 px-8 mb-4 whitespace-normal ">
+          <section className="flex flex-col w-full h-[55%] sm:h-[60%] gap-3 mb-4 whitespace-normal px-6 ">
             <p className="text-base font-semibold text-white font-Lora ">about</p>
             <pre className="h-full overflow-y-auto font-medium text-white break-words whitespace-pre-wrap text-s font-Lora no-scrollbar">
               {selfIntroduction}
             </pre>
           </section>
 
-          <section className="px-8">
-            <p className="text-sm font-bold text-white font-Lora ">제 관심사는</p>
+          <section className="px-6">
+            <p className="text-sm font-bold text-white font-Lora">제 관심사는</p>
             {interestsSort.map((interest) => {
               return (
                 <span className="text-sm font-bold text-white font-Lora " key={interest.id}>
@@ -81,7 +78,7 @@ export const RecommendedUserCard = (userInfo: Props) => {
             })}
             <span className="text-sm font-bold text-white font-Lora ">입니다.</span>
           </section>
-        </main>
+        </article>
       )}
     </>
   );

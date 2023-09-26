@@ -57,9 +57,7 @@ function ChatList() {
           ))}
         </ul>
       ) : (
-        <main className="flex items-center justify-center mt-20">
-          <NoChatListData />
-        </main>
+        <NoChatListData />
       )}
     </>
   );

@@ -5,7 +5,7 @@ function DiscoverPage() {
   return (
     <>
       <Header title="Discover" />
-      <main className="flex-auto h-[70%]">
+      <main className="flex-auto h-full px-10 py-6 overflow-auto sm:py-4">
         <DiscoverUser />
       </main>
     </>

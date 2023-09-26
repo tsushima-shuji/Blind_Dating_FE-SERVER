@@ -37,7 +37,7 @@ export const IntroductionForm = ({ signUpAllValues, setSignUpAllValues }: Props)
         자기소개를 자세히 적어주시면, 상대방에게 자신이 어떤 사람인지 파악하는데 많은 도움이 됩니다.
       </p>
 
-      <main className="mt-10 px-7">
+      <main className="pb-5 mt-10 px-7">
         <form className="flex flex-col items-center justify-center" onSubmit={handleSubmit}>
           <main className=" w-full space-y-10 h-[480px] overflow-hidden">
             <textarea

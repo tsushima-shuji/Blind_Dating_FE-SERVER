@@ -26,7 +26,7 @@ export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
         관심사 선택은 상대방에게 내가 어떤 관심사를 가진 사람인지 알리는데 많은 도움이 됩니다.
       </p>
 
-      <main className="mt-10 px-9">
+      <main className="pb-5 mt-10 px-9">
         <form className="flex flex-col items-center justify-center w-full" onSubmit={handleSubmit}>
           <main className="h-[480px] overflow-y-auto no-scrollbar">
             <InterestField

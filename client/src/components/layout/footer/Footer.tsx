@@ -9,7 +9,7 @@ function Footer() {
   const { pathname } = useLocation();
 
   return (
-    <footer className="flex justify-around flex-none pb-5 mt-8 bg-whiteLilac">
+    <footer className="flex justify-around pb-5 bg-whiteLilac">
       <Link to="/discover">
         <FooterBtn
           icon={<Cards />}

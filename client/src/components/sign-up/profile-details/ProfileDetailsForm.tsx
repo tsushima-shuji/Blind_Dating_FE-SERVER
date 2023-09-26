@@ -45,7 +45,7 @@ export const ProfileDetailsForm = ({ onNext, setSignUpAllValues }: Props) => {
         상세 정보는 상대방에게 나를 알리는데 많은 도움이 됩니다.
       </p>
 
-      <main className="mt-10 px-9">
+      <main className="pb-5 mt-10 px-9">
         <form className="flex flex-col items-start justify-between w-full" onSubmit={handleSubmit}>
           <main className="h-[480px] space-y-5">
             <section className="flex flex-col gap-1">

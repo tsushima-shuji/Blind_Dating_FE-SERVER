@@ -44,7 +44,7 @@ function DiscoverUser() {
   return (
     <>
       {dataPath.content[currentUserIndex] && (
-        <div className="flex flex-col items-center justify-center w-full h-full gap-3 px-8 sm:gap-24 overflow-y flex-3">
+        <section className="flex flex-col items-center justify-center w-full h-full gap-3 px-3 sm:justify-start sm:px-0 sm:gap-10 flex-3">
           <RecommendedUserCard {...dataPath.content[currentUserIndex]} />
           <LikeDisLikeBox
             userId={dataPath.content[currentUserIndex].id}
@@ -53,7 +53,7 @@ function DiscoverUser() {
             refetch={refetch}
             dataLength={dataPath.content.length}
           />
-        </div>
+        </section>
       )}
     </>
   );

@@ -2,9 +2,6 @@ import AuthLayout from 'components/layout/auth-layout/AuthLayout';
 import { Link } from 'react-router-dom';
 import { useModal } from 'hooks/useModal';
 import { LoginForm } from 'components/login/LoginForm';
-import facebook from 'assets/icons/facebook.png';
-import google from 'assets/icons/google.png';
-import apple from 'assets/icons/apple.png';
 
 function LoginPage() {
   const { isModalOpen, handleToggleModal } = useModal();
@@ -12,7 +9,7 @@ function LoginPage() {
   return (
     <AuthLayout>
       <header>
-        <h1 className="mt-8 font-Lobster text-8xl text-redAmaranth ">blind</h1>
+        <h1 className="font-Lobster text-8xl text-redAmaranth ">blind</h1>
       </header>
       {isModalOpen ? (
         <LoginForm />
@@ -30,20 +27,6 @@ function LoginPage() {
           </button>
         </>
       )}
-
-      <div className="border-t border-labelColor w-[300px] mt-16"></div>
-
-      <section className="flex gap-5 mt-8">
-        <div className="flex items-center justify-center w-16 h-16 border border-whiteSmoke rounded-2xl">
-          <img src={facebook} alt="facebook icon" />
-        </div>
-        <div className="flex items-center justify-center w-16 h-16 border border-whiteSmoke rounded-2xl">
-          <img src={google} alt="google icon" />
-        </div>
-        <div className="flex items-center justify-center w-16 h-16 border border-whiteSmoke rounded-2xl">
-          <img src={apple} alt="apple icon" />
-        </div>
-      </section>
     </AuthLayout>
   );
 }
