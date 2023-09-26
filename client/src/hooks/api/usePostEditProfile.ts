@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { axiosWithAuth } from 'apis/axiosClient';
-import { UserInfo } from 'pages/ProfilePage';
+import { UserInfo } from 'components/profile/Profile';
 
 const postEditProfile = async (userInfo: UserInfo) => {
   const { data } = await axiosWithAuth.put('api/user', userInfo);
