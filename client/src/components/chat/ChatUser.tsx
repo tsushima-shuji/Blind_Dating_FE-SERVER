@@ -1,10 +1,11 @@
 import { ReactComponent as Exit } from 'assets/icons/exit.svg';
+import { ReactComponent as Trash } from 'assets/icons/trash.svg';
 import { useNavigate } from 'react-router-dom';
 
-type Props = { user: string };
+type Props = { user: string; onDelete: () => void };
 
 const ChatUser = (props: Props) => {
-  const { user } = props;
+  const { user, onDelete } = props;
   const navigate = useNavigate();
 
   return (
@@ -18,12 +19,19 @@ const ChatUser = (props: Props) => {
       </div>
       <button
         type="button"
-        className="flex-none w-12 h-12 p-3 border text-s text-labelColor border-whiteSmoke rounded-xl hover:text-redAmaranth hover:border-whiteLilac"
+        className="flex-none w-12 h-12 p-3 border text-s text-labelColor border-whiteSmoke rounded-xl hover:text-redAmaranth hover:border-redAmaranth"
         onClick={() => {
           navigate('/chat-list');
         }}
       >
         <Exit />
+      </button>
+      <button
+        type="button"
+        className="flex-none w-12 h-12 p-3 border text-s text-labelColor border-whiteSmoke rounded-xl hover:text-redAmaranth hover:border-redAmaranth sm:hidden"
+        onClick={onDelete}
+      >
+        <Trash />
       </button>
     </section>
   );
