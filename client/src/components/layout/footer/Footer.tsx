@@ -8,39 +8,25 @@ import { FooterBtn } from './FooterBtn';
 function Footer() {
   const { pathname } = useLocation();
 
+  const btns = [
+    { page: 'discover', icon: <Cards /> },
+    { page: 'likes', icon: <Likes /> },
+    { page: 'chat-list', icon: <Messages /> },
+    { page: 'profile', icon: <User /> },
+  ];
+
   return (
     <footer className="flex justify-around pb-5 bg-whiteLilac">
-      <Link to="/discover">
-        <FooterBtn
-          icon={<Cards />}
-          isSelected={pathname === '/discover'}
-          fill={pathname === '/discover' ? '#E94057' : '#ADAFBB'}
-        />
-      </Link>
-
-      <Link to="/likes">
-        <FooterBtn
-          icon={<Likes />}
-          isSelected={pathname === '/likes'}
-          fill={pathname === '/likes' ? '#E94057' : '#ADAFBB'}
-        />
-      </Link>
-
-      <Link to="/chat-list">
-        <FooterBtn
-          icon={<Messages />}
-          isSelected={pathname === '/chat-list'}
-          fill={pathname === '/chat-list' ? '#E94057' : '#ADAFBB'}
-        />
-      </Link>
-
-      <Link to="/profile">
-        <FooterBtn
-          icon={<User />}
-          isSelected={pathname === '/profile'}
-          fill={pathname === '/profile' ? '#E94057' : '#ADAFBB'}
-        />
-      </Link>
+      {btns.map((btn) => (
+        <Link to={`/${btn.page}`}>
+          <FooterBtn
+            icon={btn.icon}
+            isSelected={pathname === `/${btn.page}`}
+            fill={pathname === `/${btn.page}` ? '#E94057' : '#ADAFBB'}
+            label={`${btn.page} 페이지로 이동`}
+          />
+        </Link>
+      ))}
     </footer>
   );
 }

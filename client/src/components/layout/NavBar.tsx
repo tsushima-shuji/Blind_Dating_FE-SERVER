@@ -16,7 +16,9 @@ export const NavBar = () => {
       <Link to="/discover">
         <h4 className="text-[1.7rem] font-bold font-Lobster text-redAmaranth">blind</h4>
       </Link>
-      <button onClick={handleToggleBtn}>{isModalOpen ? <CloseIcon /> : <MenuIcon />}</button>
+      <button aria-label="nav bar 열기" onClick={handleToggleBtn}>
+        {isModalOpen ? <CloseIcon /> : <MenuIcon />}
+      </button>
       {isModalOpen && (
         <section className="absolute top-[56px] right-0 left-0 bg-white h-[100vh] w-full px-6 z-50">
           <ul

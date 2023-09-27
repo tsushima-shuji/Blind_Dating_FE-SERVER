@@ -81,6 +81,7 @@ const DetailInfoTags = (props: Props) => {
             type="button"
             className="absolute w-6 h-6 top-3 right-3 text-black/80 z-3"
             onClick={onToggleBtn}
+            aria-label="닫기"
           >
             <Close />
           </button>

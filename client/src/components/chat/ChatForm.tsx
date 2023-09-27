@@ -44,6 +44,7 @@ const ChatForm = (props: Props) => {
           className="flex-none px-3 text-white border rounded border-redAmaranth bg-redAmaranth text-s disabled:border-whiteLilac disabled:text-labelColor disabled:bg-white"
           onClick={handleClick}
           disabled={!value.length || !roomStatus}
+          aria-label="채팅 전송"
         >
           <Send />
         </button>
