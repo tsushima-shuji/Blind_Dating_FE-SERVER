@@ -26,13 +26,13 @@ export type UserList = {
 
 function DiscoverUser() {
   const [currentUserIndex, setCurrentUserIndex] = useState<number>(0);
-  const { data, isLoading, isSuccess, refetch } = useGetRecommendedUserList();
+  const { data, isLoading, refetch } = useGetRecommendedUserList();
 
   useEffect(() => {
     if (data) {
       setCurrentUserIndex(0);
     }
-  }, [isSuccess, isLoading, data]);
+  }, [data]);
 
   if (isLoading) return <LoadingSpinner />;
 

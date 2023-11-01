@@ -18,6 +18,21 @@ export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
     onNext();
   };
 
+  const INTEREST_FIELDS = [
+    {
+      label: '스포츠',
+      interestings: INTERESTINGS_SPORTS,
+      collectAnswers,
+      setCollectAnswers,
+    },
+    {
+      label: '문화 및 활동',
+      interestings: INTERESTINGS_CULTURE,
+      collectAnswers,
+      setCollectAnswers,
+    },
+  ];
+
   return (
     <div className="w-full h-full">
       <Header progressWidth="4/5" title="Your interests" />
@@ -29,18 +44,14 @@ export const YourInterestForm = ({ onNext, setSignUpAllValues }: Props) => {
       <main className="pb-5 mt-10 px-9">
         <form className="flex flex-col items-center justify-center w-full" onSubmit={handleSubmit}>
           <main className="h-[480px] overflow-y-auto no-scrollbar">
-            <InterestField
-              label="스포츠"
-              interestings={INTERESTINGS_SPORTS}
-              collectAnswers={collectAnswers}
-              setCollectAnswers={setCollectAnswers}
-            />
-            <InterestField
-              label="문화 및 활동"
-              interestings={INTERESTINGS_CULTURE}
-              collectAnswers={collectAnswers}
-              setCollectAnswers={setCollectAnswers}
-            />
+            {INTEREST_FIELDS.map((field) => (
+              <InterestField
+                label={field.label}
+                interestings={field.interestings}
+                collectAnswers={field.collectAnswers}
+                setCollectAnswers={field.setCollectAnswers}
+              />
+            ))}
           </main>
 
           <button

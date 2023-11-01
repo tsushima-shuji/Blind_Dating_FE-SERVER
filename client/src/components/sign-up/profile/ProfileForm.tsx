@@ -78,7 +78,7 @@ export const ProfileForm = ({ onNext, setSignUpAllValues }: Props) => {
     const regex = /^[A-Za-z0-9가-힣]{5,20}$/;
 
     if (userNickname === undefined) {
-      alert('아이디를 입력해주세요.');
+      alert('닉네임을 입력해주세요.');
       return;
     }
 
